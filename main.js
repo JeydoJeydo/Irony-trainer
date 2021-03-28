@@ -1,6 +1,18 @@
 window.onload = function(){
     console.log("init.");
+    console.log(lvlData[0].papa);
     startup();
+
+    const mw = new movinwords({
+        "el": ".word",
+        "autostart": false,
+        "delay": "10",
+        "duration": "500",
+        "transition": "slideInTop",
+        "offset": "5",
+        "wordSpacing": "5"
+    });
+    mw.start();
 }
 
 function startup(){ //set or get UserName
@@ -67,4 +79,12 @@ function reverse(){
 }
 function deleteData(){
     localStorage.clear();
+}
+
+
+// intro functions
+
+function introResume(){
+    document.querySelector(".intro-aboutText-wrapper").style.left = "-100%";
+    document.querySelector(".intro-login-wrapper").style.left = "0%";
 }

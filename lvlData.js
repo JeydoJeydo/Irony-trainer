@@ -13,5 +13,10 @@ var lvlData = [
     "text":"dritter Test bla bla",
     "solution":0,
     "userAnswer":""
+},
+{
+    "text":"hallo der blaaaaa",
+    "solution":2,
+    "userAnswer": ""
 }
 ]

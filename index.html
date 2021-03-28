@@ -1,17 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="lvlData.js"></script>
     <script src="main.js"></script>
     <title>ironie lernen</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="movinwords-main/dist/movinwords.min.css" />
+    <script src="movinwords-main/dist/movinwords.min.js"></script>
+
+    <link rel="icon" type="image/png" href="img/favicon/favicon_1.1_152px.png" sizes="152x152">
+    <link rel="icon" type="image/png" href="img/favicon/favicon_1.1_144px.png" sizes="144x144">
+    <link rel="icon" type="image/png" href="img/favicon/favicon_1.1_50px.png" sizes="50x50">
+
+    <meta name="theme-color" content="#2A353F">
 </head>
 <body>
+    <!--Intro-->
+    <div class="intro-wrapper">
+        <div class="intro-header-wrapper">
+            <p>Ironie Trainer</p>
+        </div>
+        <div class="intro-aboutText-wrapper fading">
+            <div class="intro-aboutText-wrapper-inner">
+                <section>
+                    <p id="app-about-text-thick" class="word">Eine Lern-App für Kinder um Ironie zu trainieren</p>
+                    <p id="app-about-text" class="word">orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam </p>    
+                </section>
+                <section>
+                    <p id="app-about-text-thick" class="word">Eine Lern-App für Kinder um Ironie zu trainieren</p>
+                    <p id="app-about-text" class="word">orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam </p>    
+                </section>
+                <section>
+                    <p id="app-about-text-thick" class="word">Eine Lern-App für Kinder um Ironie zu trainieren</p>
+                    <p id="app-about-text" class="word">orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam </p>    
+                </section>
+            </div>
+        </div>
+        <div class="intro-login-wrapper fading">
+            <p id="intro-personal-msg">Hey du.</p>
+            <section>
+                <input type="text" id="nameInput" placeholder="Dein Name">
+                <p id="intro-why-name">Deinen Namen müssen wir nur wissen,
+                    damit du persönlich angesprochen 
+                    werden kannst.
+                </p>
+            </section>
+            
+        </div>
+        <div class="intro-button-wrapper">
+            <button type="button" id="intro-button-one" onclick="introResume()">Weiter</button>
+        </div>
+    </div>
+
     <p onclick="deleteData()">delete</p>
     <p id="currentLvl"></p>
-    <p id="texttest"></p>
+    <p class="word" id="texttest"></p>
     <p onclick="userInput(0)">Ironie</p>
     <p onclick="userInput(1)">Lüge</p>
     <p onclick="userInput(2)">Fehler</p>
