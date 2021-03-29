@@ -1,7 +1,6 @@
 window.onload = function(){
     console.log("init.");
     console.log(lvlData[0].papa);
-    startup();
 
     const mw = new movinwords({
         "el": ".word",
@@ -19,7 +18,7 @@ function startup(){ //set or get UserName
     if(localStorage.getItem("userName") == null){   //user doesn't exists
         var currentDate = new Date;
 
-        var userName = window.prompt("Wie heißt du?");
+        var userName = document.getElementById("nameInput").value;
         localStorage.setItem("userName", userName); //store Name
         localStorage.setItem("JoinedOn", currentDate);
     }else{  //user exists
@@ -29,7 +28,7 @@ function startup(){ //set or get UserName
             lvlData = parseData(localStorage.getItem("lvlData"));  
             console.log(lvlData);
         }
-        progress(); //get lvl Data
+        //progress(); //get lvl Data
     }
 }
 
@@ -69,6 +68,33 @@ function parseData(givenData){
 
 
 
+
+
+
+// intro functions
+
+function introResume(){
+    var introOne = document.querySelector(".intro-aboutText-wrapper");
+    var introTwo = document.querySelector(".intro-login-wrapper");
+    var nameInput = document.getElementById("nameInput");
+
+    if(introOne.style.left != "-100%" && introTwo.style.left != "0%"){
+       introOne.style.left = "-100%";
+        introTwo.style.left = "0%"; 
+    }else if(nameInput.value == null || nameInput.value == ""){
+        console.log("please fill");
+        nameInput.style.boxShadow = "0 0 0 2pt #f4ead5";
+    }else{
+        startup();
+        nameInput.style.boxShadow = "none";
+        console.log("ready");
+    }    
+}
+
+
+
+
+
 function resume(){
     currentLvl++;
     progress();
@@ -79,12 +105,4 @@ function reverse(){
 }
 function deleteData(){
     localStorage.clear();
-}
-
-
-// intro functions
-
-function introResume(){
-    document.querySelector(".intro-aboutText-wrapper").style.left = "-100%";
-    document.querySelector(".intro-login-wrapper").style.left = "0%";
 }

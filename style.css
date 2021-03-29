@@ -22,8 +22,10 @@ p, a, span{
 .intro-wrapper{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
     width: 100%;
+    max-width: 500px;
     height: 100%;
     z-index: 9;
     background-color: var(--C-blue);
@@ -93,6 +95,7 @@ p, a, span{
 }
 .intro-login-wrapper section{
     position: absolute;
+    width: 100%;
     bottom: 0;
 }
 #intro-personal-msg{
