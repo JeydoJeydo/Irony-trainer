@@ -1,6 +1,7 @@
+var userName;
+
 window.onload = function(){
     console.log("init.");
-    console.log(lvlData[0].papa);
 
     const mw = new movinwords({
         "el": ".word",
@@ -12,23 +13,22 @@ window.onload = function(){
         "wordSpacing": "5"
     });
     mw.start();
+
+    startup();
 }
 
 function startup(){ //set or get UserName
     if(localStorage.getItem("userName") == null){   //user doesn't exists
-        var currentDate = new Date;
-
-        var userName = document.getElementById("nameInput").value;
-        localStorage.setItem("userName", userName); //store Name
-        localStorage.setItem("JoinedOn", currentDate);
+        console.log("User doesnt exists");
     }else{  //user exists
+        userName = localStorage.getItem("userName");
+
         console.log("userName: " + localStorage.getItem("userName"));
         console.log("Joined On: " + localStorage.getItem("JoinedOn"));
         if(localStorage.getItem("lvlData") != null){
             lvlData = parseData(localStorage.getItem("lvlData"));  
             console.log(lvlData);
         }
-        //progress(); //get lvl Data
     }
 }
 
@@ -91,8 +91,14 @@ function introResume(){
     }else if(welcomeMsg.style.left == "100%"){
         welcomeMsg.style.left = "0%";
         introTwo.style.left = "-100%";
+
+        var currentDate = new Date;
+        userName = document.getElementById("nameInput").value;
+        localStorage.setItem("userName", userName); //store Name
+        localStorage.setItem("JoinedOn", currentDate);
+        
+        document.querySelector("#intro-msg-response").innerHTML = "Hallo " + userName +  " ,bist du bereit für die erste Runde?";
     }else{
-        startup();
         nameInput.style.boxShadow = "none";
         console.log("ready");
     }    
