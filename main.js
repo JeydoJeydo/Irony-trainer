@@ -77,15 +77,20 @@ function introResume(){
     var introOne = document.querySelector(".intro-aboutText-wrapper");
     var introTwo = document.querySelector(".intro-login-wrapper");
     var appName = document.querySelector("#app-name");
+    var welcomeMsg = document.querySelector(".intro-welcome-msg");
     var nameInput = document.getElementById("nameInput");
 
     if(introOne.style.left != "-100%" && introTwo.style.left != "0%"){
         introOne.style.left = "-100%";
         introTwo.style.left = "0%"; 
         appName.style.left = "-100%";
+        welcomeMsg.style.left = "100%";
     }else if(nameInput.value == null || nameInput.value == ""){
         console.log("please fill");
         nameInput.style.boxShadow = "0 0 0 2pt #f4ead5";
+    }else if(welcomeMsg.style.left == "100%"){
+        welcomeMsg.style.left = "0%";
+        introTwo.style.left = "-100%";
     }else{
         startup();
         nameInput.style.boxShadow = "none";

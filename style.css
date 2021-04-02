@@ -131,6 +131,18 @@ p, a, span{
 }
 
 
+.intro-welcome-msg{
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 80px - 80px);
+    height: 100%;
+    top: 80px;
+    top: 0;
+    left: 200%;
+    background-color: #FFF;
+}
+
+
 
 
 /* default styling */
