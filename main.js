@@ -19,16 +19,17 @@ window.onload = function(){
 
 function startup(){ //set or get UserName
     if(localStorage.getItem("userName") == null){   //user doesn't exists
-        console.log("User doesnt exists");
+        console.log("User doesnt exists!");
     }else{  //user exists
+        console.log("User exists!");
         userName = localStorage.getItem("userName");
-
         console.log("userName: " + localStorage.getItem("userName"));
         console.log("Joined On: " + localStorage.getItem("JoinedOn"));
         if(localStorage.getItem("lvlData") != null){
             lvlData = parseData(localStorage.getItem("lvlData"));  
             console.log(lvlData);
         }
+        //document.querySelector(".intro-wrapper").style.display = "none";
     }
 }
 
@@ -79,6 +80,7 @@ function introResume(){
     var appName = document.querySelector("#app-name");
     var welcomeMsg = document.querySelector(".intro-welcome-msg");
     var nameInput = document.getElementById("nameInput");
+    var introButtonOne = document.querySelector(".intro-button-wrapper");
 
     if(introOne.style.left != "-100%" && introTwo.style.left != "0%"){
         introOne.style.left = "-100%";
@@ -91,13 +93,14 @@ function introResume(){
     }else if(welcomeMsg.style.left == "100%"){
         welcomeMsg.style.left = "0%";
         introTwo.style.left = "-100%";
+        introButtonOne.style.left = "-100%";
 
         var currentDate = new Date;
         userName = document.getElementById("nameInput").value;
         localStorage.setItem("userName", userName); //store Name
         localStorage.setItem("JoinedOn", currentDate);
-        
-        document.querySelector("#intro-msg-response").innerHTML = "Hallo " + userName +  " ,bist du bereit für die erste Runde?";
+
+        document.querySelector("#intro-msg-response").innerHTML = "Hallo " + userName +  ", bist du bereit für die erste Runde?";
     }else{
         nameInput.style.boxShadow = "none";
         console.log("ready");
