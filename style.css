@@ -27,12 +27,28 @@ p, a, span{
     height: 100%;
     background-color: #FFF;
 }
+.landing-header{
+    width: 100%;
+    height: 100px;
+    background-color: #FFF;
+    position: fixed;
+}
+#landing-msg{
+    padding: 15px 30px;
+    font-weight: 700;
+    float: left;
+}
+#landing-points{
+    padding: calc(15px + 0.2em) 30px;
+    float: right;
+    font-size: 0.8em;
+}
 .lvl-overview-wrapper{
     width: calc(100% - 60px);
-    margin: 30px;
+    margin: 100px 30px 30px 30px;
 }
 .lvl-overview-wrapper div{
-    width: calc(50% - 12px);
+    width: calc(50% - 10px);
     height: 200px;
     margin: 0 10px 10px 0;
     float: left;
