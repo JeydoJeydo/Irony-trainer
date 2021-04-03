@@ -100,6 +100,9 @@ function verteiler(a){
         case 3:
             document.querySelector(".settings").style.top = "-100%";
             break;
+        case 4:
+            localStorage.clear();
+            break;
         default:
             console.log("issue in verteiler function");
     }
