@@ -25,35 +25,14 @@ function startup(){ //set or get UserName
         userName = localStorage.getItem("userName");
         console.log("userName: " + localStorage.getItem("userName"));
         console.log("Joined On: " + localStorage.getItem("JoinedOn"));
+
         if(localStorage.getItem("lvlData") != null){
             lvlData = parseData(localStorage.getItem("lvlData"));  
             console.log(lvlData);
         }
-        //document.querySelector(".intro-wrapper").style.display = "none";
+        document.querySelector(".intro-wrapper").style.display = "none";
+        welcomeApp();
     }
-}
-
-
-var currentLvl = 0; //current Level
-
-function progress(){
-    document.getElementById("texttest").innerHTML = lvlData[currentLvl].text;   //display Text
-    document.getElementById("currentLvl").innerHTML = currentLvl +1;    //display current Lvl
-}
-
-
-
-
-
-function userInput(lvldpInput){ //gets which button was pressed
-    if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
-        console.log("richtig");
-    }else{
-        console.log("falsch");
-    }
-    lvlData[currentLvl].userAnswer = lvldpInput;
-    console.log(lvlData);
-    saveLocal(stringifyData(lvlData));
 }
 
 function saveLocal(dataToSave){
@@ -107,10 +86,71 @@ function introResume(){
     }    
 }
 
+// app functions
+
+function welcomeApp(){
+    var welcomeMsg = document.querySelector("#landing-msg");
+    welcomeMsg.innerHTML = "Moin, " + userName;
+}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function testingFunction(){
+    localStorage.clear();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var currentLvl = 0; //current Level
+
+function progress(){
+    document.getElementById("texttest").innerHTML = lvlData[currentLvl].text;   //display Text
+    document.getElementById("currentLvl").innerHTML = currentLvl +1;    //display current Lvl
+}
+
+function userInput(lvldpInput){ //gets which button was pressed
+    if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
+        console.log("richtig");
+    }else{
+        console.log("falsch");
+    }
+    lvlData[currentLvl].userAnswer = lvldpInput;
+    console.log(lvlData);
+    saveLocal(stringifyData(lvlData));
+}
 function resume(){
     currentLvl++;
     progress();

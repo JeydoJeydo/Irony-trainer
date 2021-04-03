@@ -9,6 +9,7 @@ html, body{
     --C-orange: #F49A25;
     --C-blue: #2A353F;
     --C-light: #f4ead5;
+    --C-lightGrey : #c2c2c2;
 }
 body{
     background-color: #FFF;
@@ -16,6 +17,39 @@ body{
 p, a, span{
     font-family: 'Nunito', sans-serif;
     color: var(--C-blue);
+}
+/* App */
+.landing-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+}
+.lvl-overview-wrapper{
+    width: calc(100% - 60px);
+    margin: 30px;
+}
+.lvl-overview-wrapper div{
+    width: calc(50% - 12px);
+    height: 200px;
+    margin: 0 10px 10px 0;
+    float: left;
+    border-radius: 20px;
+    background-color: #F2F2F2;
+}
+.lvl-overview-wrapper div p{
+    display: table;
+    padding: 15px 0 0 15px;
+}
+.lvl-overview-wrapper div p:first-child{
+    font-weight: 700;
+}
+.lvl-overview-wrapper div p:last-child{
+    width: calc(100% - 30px);
+    padding: 0 0 0 15px;
+    font-weight: 300;
 }
 
 /* Intro */
@@ -86,9 +120,6 @@ p, a, span{
     border-radius: 30px;
     background-color: var(--C-orange);
 }
-
-
-
 .intro-login-wrapper{
     position: absolute;
     width: 100%;
@@ -130,8 +161,6 @@ p, a, span{
     width: calc(100% - 60px);
     padding: 0 30px;
 }
-
-
 .intro-welcome-msg{
     position: absolute;
     width: 100%;
@@ -159,12 +188,8 @@ p, a, span{
     bottom: 20px;
     background-color: #FFF;
     color: var(--C-blue);
-    border: 1px solid var(--C-blue);
+    border: 1px solid var(--C-lightGrey);
 }
-
-
-
-
 /* default styling */
 button{
     border: none; 
@@ -194,7 +219,6 @@ button:hover, button:focus{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-
 .defaultButton{
     width: calc(100% - 60px);
     margin: 0 0 0 30px;
