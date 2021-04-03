@@ -86,6 +86,21 @@ function introResume(){
     }    
 }
 
+function verteiler(a){
+    switch (a){
+        case 0:
+            break;
+        case 1:
+            welcomeApp();
+            document.querySelector(".intro-wrapper").style.display = "none";
+            break;
+        case 2:
+            break;
+        default:
+            console.log("issue in verteiler function");
+    }
+}
+
 // app functions
 
 function welcomeApp(){
