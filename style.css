@@ -55,6 +55,9 @@ p, a, span{
     border-radius: 20px;
     background-color: #F2F2F2;
 }
+.lvl-overview-wrapper div:nth-child(2n){
+    margin: 0 0px 10px 10px;
+}
 .lvl-overview-wrapper div p{
     display: table;
     padding: 15px 0 0 15px;
