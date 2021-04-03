@@ -104,8 +104,19 @@ function verteiler(a){
 // app functions
 
 function welcomeApp(){
+    var currentDate = new Date;
+    var currentDate = currentDate.getHours();
+    var daytime;
+    
+    if(currentDate < 13){
+        daytime = "Guten Morgen,";
+    }else if(currentDate >= 13 && currentDate <= 17){
+        daytime = "Moin,";
+    }else if(currentDate >= 18){
+        daytime = "Guten Abend,";
+    }
     var welcomeMsg = document.querySelector("#landing-msg");
-    welcomeMsg.innerHTML = "Moin, " + userName;
+    welcomeMsg.innerHTML = daytime  + " " + userName;
 }
 
 
