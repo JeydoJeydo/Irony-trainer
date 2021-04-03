@@ -95,6 +95,10 @@ function verteiler(a){
             document.querySelector(".intro-wrapper").style.display = "none";
             break;
         case 2:
+            document.querySelector(".settings").style.top = "0%";
+            break;
+        case 3:
+            document.querySelector(".settings").style.top = "-100%";
             break;
         default:
             console.log("issue in verteiler function");
