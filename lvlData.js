@@ -3,7 +3,7 @@ var lvlData = [
     "type":0,
     "text":"Hermann stieg zusammen mit seinen Freunden die Treppe hinunter als er plötzlich den Halt verlohr und mitsammt seinen Sachen unter einem riesen Knall die Treppe hinunten viel, unten angekommen stand der rasch wieder auf und sagte Da wäre ich ja fast hingefallen",
     "solution":0,
-    "userAnswer":""
+    "userAnswer":"1"
 },
 {
     "type":1,
@@ -22,5 +22,41 @@ var lvlData = [
     "text":"hallo der blaaaaa",
     "solution":2,
     "userAnswer": ""
-}
+},
+{
+    "type":0,
+    "text":"hallo der blaaaaa",
+    "solution":2,
+    "userAnswer": ""
+},
+{
+    "type":0,
+    "text":"hallo der blaaaaa",
+    "solution":2,
+    "userAnswer": ""
+},
+{
+    "type":0,
+    "text":"hallo der blaaaaa",
+    "solution":2,
+    "userAnswer": ""
+},
+{
+    "type":0,
+    "text":"hallo der blaaaaa",
+    "solution":2,
+    "userAnswer": ""
+},
+{
+    "type":0,
+    "text":"hallo der blaaaaa",
+    "solution":2,
+    "userAnswer": ""
+},
+{
+    "type":0,
+    "text":"hallo der blaaaaa",
+    "solution":2,
+    "userAnswer": ""
+},
 ]

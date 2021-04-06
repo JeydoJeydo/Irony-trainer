@@ -32,6 +32,7 @@ function startup(){ //set or get UserName
         }
         document.querySelector(".intro-wrapper").style.display = "none";
         welcomeApp();
+        avaLvl();
     }
 }
 
@@ -108,6 +109,20 @@ function verteiler(a){
     }
 }
 
+function avaLvl(){
+    var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
+    for(i = 1; i < amountOfLevel; i++){
+        if(lvlData[i].userAnswer == ""){
+            var elementID = "#lvl" + (i+1);
+            console.log(elementID);
+            document.querySelector(elementID).style.opacity = "0.5";
+        }else{
+            console.log("yess");
+        }
+        console.log("durchlauf");
+    }
+}
+
 // app functions
 
 function welcomeApp(){
@@ -136,7 +151,7 @@ function levelIntroducing(divId){
     }else if(divId.slice(-1) != 1 && lvlData[divId.slice(-1) -2].userAnswer != ""){
         console.log("acces granted");
     }else{
-        console.log("not yet");
+        console.log("lvl not unlocked");
     }
 }
 
