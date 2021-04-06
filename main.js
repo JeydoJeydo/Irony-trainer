@@ -111,9 +111,9 @@ function verteiler(a){
 
 function avaLvl(){
     var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
-    for(i = 1; i < amountOfLevel; i++){
+    for(i = 0; i < amountOfLevel; i++){
         if(lvlData[i].userAnswer == ""){
-            var elementID = "#lvl" + (i+1);
+            var elementID = "#lvl" + (i+2);
             console.log(elementID);
             document.querySelector(elementID).style.opacity = "0.5";
         }else{
@@ -142,17 +142,22 @@ function welcomeApp(){
 }
 
 function levelIntroducing(divId){
-    console.log(divId);
+    if(divId.slice(-1) == 1){
+        console.log("acces granted");
+        lvlLoader(divId);
+    }else{
+        if(divId.slice(-1) != 1 && lvlData[divId.slice(-1) -2].userAnswer != ""){
+            console.log("acces granted");
+            lvlLoader(divId);
+        }else{
+            console.log("lvl not unlocked");
+        }
+    }
+}
+
+function lvlLoader(divId){
     document.querySelector(".level-structure").style.display = "block";
     document.querySelector("#level-header-level").innerHTML = divId;
-    console.log(lvlData[divId.slice(-1) -1]);
-    if(divId.slice(-1) == 1){
-        console.log("first lvl");
-    }else if(divId.slice(-1) != 1 && lvlData[divId.slice(-1) -2].userAnswer != ""){
-        console.log("acces granted");
-    }else{
-        console.log("lvl not unlocked");
-    }
 }
 
 
