@@ -34,6 +34,7 @@ p, a, span{
     height: 150px;
     background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 100%);
     position: fixed;
+    z-index: 2;
 }
 .landing-header section{
     width: 100%;
@@ -58,6 +59,7 @@ p, a, span{
 .lvl-overview-wrapper{
     width: calc(100% - 60px);
     margin: 150px 30px 30px 30px;
+    z-index: 1;
 }
 .lvl-overview-wrapper div{
     width: calc(50% - 10px);
