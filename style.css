@@ -32,7 +32,7 @@ p, a, span{
 .landing-header{
     width: 100%;
     height: 150px;
-    background-color: #FFF;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 100%);
     position: fixed;
 }
 .landing-header section{
@@ -81,6 +81,33 @@ p, a, span{
     width: calc(100% - 30px);
     padding: 0 0 0 15px;
     font-weight: 300;
+}
+
+/* level Structure */
+
+.level-structure{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    display: none;
+}
+.level-header{
+    width: 100%;
+    height: calc(60px + 1em);
+}
+#level-header-level{
+    padding: 30px;
+}
+.level-body{
+    width: 100%;
+    height: calc(100% - 60px - 1em - 100px);
+    overflow: auto;
+}
+.level-footer{
+    width: 100%;
+    height: 100px;
 }
 
 /* settings */

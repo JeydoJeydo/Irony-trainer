@@ -126,6 +126,20 @@ function welcomeApp(){
     welcomeMsg.innerHTML = daytime  + " " + userName;
 }
 
+function levelIntroducing(divId){
+    console.log(divId);
+    document.querySelector(".level-structure").style.display = "block";
+    document.querySelector("#level-header-level").innerHTML = divId;
+    console.log(lvlData[divId.slice(-1) -1]);
+    if(divId.slice(-1) == 1){
+        console.log("first lvl");
+    }else if(divId.slice(-1) != 1 && lvlData[divId.slice(-1) -2].userAnswer != ""){
+        console.log("acces granted");
+    }else{
+        console.log("not yet");
+    }
+}
+
 
 
 
