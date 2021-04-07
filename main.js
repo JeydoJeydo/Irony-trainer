@@ -32,8 +32,8 @@ function startup(){ //set or get UserName
         }
         document.querySelector(".intro-wrapper").style.display = "none";
         welcomeApp();
-        avaLvl();
     }
+    avaLvl();
 }
 
 function saveLocal(dataToSave){
