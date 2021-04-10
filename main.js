@@ -108,6 +108,7 @@ function verteiler(a){
             break;
         case 5:
             document.querySelector(".level-structure").style.display = "none";
+            taskButtonAppearance(0); //show resume button on lvl entry
             break;
         default:
             console.log("issue in verteiler function");
@@ -190,8 +191,32 @@ function lvlresume(){
     spOne = document.querySelector("#storypart-one");
     spTwo = document.querySelector("#storypart-two");
     spThree = document.querySelector("#storypart-three");
+    taskButtonAppearance(1);
 
     spOne.innerHTML = lvlData[currentId].task;
+}
+function taskButtonAppearance(buttonId){
+    tbaButton = document.querySelector("#levelFooterButton");
+    tbaWhat = document.querySelector(".typeOne");
+    tbaChoose = document.querySelector(".typeTwo");
+
+    switch(buttonId){
+        case 0:
+            tbaButton.style.display = "block";
+            tbaWhat.style.display = "none";
+            tbaChoose.style.display = "none";
+            break;
+        case 1:
+            tbaButton.style.display = "none";
+            tbaWhat.style.display = "flex";
+            tbaChoose.style.display = "none";
+            break;
+        case 2:
+            tbaButton.style.display = "none";
+            tbaWhat.style.display = "none";
+            tbaChoose.style.display = "block";
+            break;
+    }
 }
 
 

@@ -132,7 +132,7 @@ p, a, span{
     padding: 18px 25px;
     border-radius: 15px;
     background-color: var(--C-blue);
-    display: flex;
+    display: none; /* flex */
     justify-content: space-between;
 }
 .typeOne p{
@@ -140,7 +140,7 @@ p, a, span{
     font-size: 1em;
 }
 .typeTwo{
-    
+    display: none;
 }
 
 /* settings */
