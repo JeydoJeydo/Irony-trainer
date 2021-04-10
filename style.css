@@ -94,6 +94,7 @@ p, a, span{
     height: 100%;
     background-color: #FFF;
     display: none;
+    z-index: 3;
 }
 .level-header{
     width: 100%;
@@ -286,6 +287,24 @@ p, a, span{
     color: var(--C-blue);
     border: 1px solid var(--C-lightGrey);
 }
+
+/* pop msg */
+
+#popmsg{
+    position: absolute;
+    top: calc(100% + 1em);
+    width: calc(90vw - 4em);
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 999;
+    background-color: var(--C-orange);
+    color: #FFF;
+    padding: 1em 2em;
+    border-radius: 30px;
+    opacity: 0;
+}
+
 /* default styling */
 button{
     border: none; 

@@ -141,6 +141,17 @@ function welcomeApp(){
     welcomeMsg.innerHTML = daytime  + " " + userName;
 }
 
+function popmsg(msg){
+    document.querySelector("#popmsg").innerHTML = msg;
+    document.querySelector("#popmsg").style.top = "calc(100% - 4em)";
+    document.querySelector("#popmsg").style.opacity = "1";
+    setTimeout(popmsgclose, 3500);
+    function popmsgclose(){
+        document.querySelector("#popmsg").style.top = "calc(100% + 1em)";
+        document.querySelector("#popmsg").style.opacity = "0";
+    }
+}
+
 function levelIntroducing(divId){
     if(divId.slice(-1) == 1){
         console.log("acces granted");
@@ -151,6 +162,7 @@ function levelIntroducing(divId){
             lvlLoader(divId);
         }else{
             console.log("lvl not unlocked");
+            popmsg("level noch nicht freigeschaltet");
         }
     }
 }
@@ -159,7 +171,6 @@ function lvlLoader(divId){
     document.querySelector(".level-structure").style.display = "block";
     document.querySelector("#level-header-level").innerHTML = divId;
 }
-
 
 
 
