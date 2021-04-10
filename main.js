@@ -91,6 +91,9 @@ function introResume(){
 function verteiler(a){
     switch (a){
         case 0:
+            welcomeApp();
+            document.querySelector(".intro-wrapper").style.display = "none";
+            levelIntroducing("lvl0");
             break;
         case 1:
             welcomeApp();
@@ -212,8 +215,8 @@ function userInput(lvldpInput){ //gets which button was pressed
 
 function userFeedbackMsg(rw){
     if(rw == 1){//answer is right
-        document.querySelector(".userFeedback").style.display = "block";
-        document.querySelector("#userFeedbackMsg").innerHTML = "richtig";
+        //document.querySelector(".userFeedback").style.display = "block";
+        //document.querySelector("#userFeedbackMsg").innerHTML = "richtig";
     }else if(rw == 2){//answer is wrong
         document.querySelector(".userFeedback").style.display = "block";
         document.querySelector("#userFeedbackMsg").innerHTML = "falsch";
