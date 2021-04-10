@@ -107,6 +107,7 @@ p, a, span{
 }
 #level-header-level{
     padding: 30px;
+    font-weight: 700;
 }
 .level-body{
     width: calc(100% - 60px);

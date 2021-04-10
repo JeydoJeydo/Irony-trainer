@@ -115,7 +115,7 @@ function verteiler(a){
     }
 }
 
-function avaLvl(){
+function avaLvl(){ //grey out all unavailable level
     var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
     for(i = 0; i < amountOfLevel; i++){
         if(lvlData[i].userAnswer == ""){
@@ -178,7 +178,7 @@ function lvlLoader(divId){
     console.log(divId);
     divNumber = divId.slice(-1);
     document.querySelector(".level-structure").style.display = "block";
-    document.querySelector("#level-header-level").innerHTML = divId;
+    document.querySelector("#level-header-level").innerHTML = "Level: " + (parseInt(divNumber)+1);
 
     spOne = document.querySelector("#storypart-one");
     spTwo = document.querySelector("#storypart-two");
