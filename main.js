@@ -173,7 +173,7 @@ function levelIntroducing(divId){
         }
     }
 }
-var currentId;
+var currentId; //just number
 function lvlLoader(divId){
     console.log(divId);
     divNumber = divId.slice(-1);
@@ -211,12 +211,13 @@ function userInput(lvldpInput){ //gets which button was pressed
 }
 
 function userFeedbackMsg(rw){
-    if(rw == 1){
+    if(rw == 1){//answer is right
         document.querySelector(".userFeedback").style.display = "block";
         document.querySelector("#userFeedbackMsg").innerHTML = "richtig";
-    }else if(rw == 2){
+    }else if(rw == 2){//answer is wrong
         document.querySelector(".userFeedback").style.display = "block";
         document.querySelector("#userFeedbackMsg").innerHTML = "falsch";
+        document.querySelector("#userFeedbackMsg").innerHTML = lvlData[currentId].ifWrong;
     }
     setTimeout(userFeedbackMsgClose, 3000);
     function userFeedbackMsgClose(){

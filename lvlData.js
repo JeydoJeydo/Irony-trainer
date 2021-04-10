@@ -3,6 +3,7 @@ var lvlData = [
     "type":0,
     "text":"Hermann stieg zusammen mit seinen Freunden die Treppe hinunter als er plötzlich den Halt verlohr und mitsammt seinen Sachen unter einem riesen Knall die Treppe hinunten viel, unten angekommen stand der rasch wieder auf und sagte Da wäre ich ja fast hingefallen",
     "task":"Hermann stieg zusammen mit seinen Freunden die Treppe hinunter als er plötzlich den Halt verlohr und mitsammt seinen Sachen unter einem riesen Knall die Treppe hinunten viel, unten angekommen stand der rasch wieder auf und sagte Da wäre ich ja fast hingefallen",
+    "ifWrong":"youre wrong because",
     "solution":0,
     "userAnswer":""
 },
