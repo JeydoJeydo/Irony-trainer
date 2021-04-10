@@ -132,9 +132,10 @@ p, a, span{
     padding: 18px 25px;
     border-radius: 15px;
     background-color: var(--C-blue);
+    display: flex;
+    justify-content: space-between;
 }
 .typeOne p{
-    float: left;
     color: #FFF;
     font-size: 1em;
 }
