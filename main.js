@@ -106,6 +106,9 @@ function verteiler(a){
             localStorage.clear();
             popmsg("alle Daten gelöscht");
             break;
+        case 5:
+            document.querySelector(".level-structure").style.display = "none";
+            break;
         default:
             console.log("issue in verteiler function");
     }
@@ -180,7 +183,7 @@ function lvlLoader(divId){
     spTwo = document.querySelector("#storypart-two");
     spThree = document.querySelector("#storypart-three");
 
-    spOne.innerHTML = lvlData[divNumber].texte[0];
+    spOne.innerHTML = lvlData[divNumber].text;
     currentId = divNumber;
 }
 function lvlresume(){
@@ -188,7 +191,7 @@ function lvlresume(){
     spTwo = document.querySelector("#storypart-two");
     spThree = document.querySelector("#storypart-three");
 
-    spOne.innerHTML = lvlData[currentId]
+    spOne.innerHTML = lvlData[currentId].task;
 }
 
 
