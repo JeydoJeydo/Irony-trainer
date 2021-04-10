@@ -70,6 +70,7 @@ function introResume(){
     }else if(nameInput.value == null || nameInput.value == ""){
         console.log("please fill");
         nameInput.style.boxShadow = "0 0 0 2pt #f4ead5";
+        popmsg("gib bitte deinen Namen an");
     }else if(welcomeMsg.style.left == "100%"){
         welcomeMsg.style.left = "0%";
         introTwo.style.left = "-100%";
@@ -103,6 +104,7 @@ function verteiler(a){
             break;
         case 4:
             localStorage.clear();
+            popmsg("alle Daten gelöscht");
             break;
         default:
             console.log("issue in verteiler function");
@@ -113,7 +115,7 @@ function avaLvl(){
     var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
     for(i = 0; i < amountOfLevel; i++){
         if(lvlData[i].userAnswer == ""){
-            var elementID = "#lvl" + (i+2);
+            var elementID = "#lvl" + (i+1);
             console.log(elementID);
             document.querySelector(elementID).style.opacity = "0.5";
         }else{
@@ -153,23 +155,40 @@ function popmsg(msg){
 }
 
 function levelIntroducing(divId){
-    if(divId.slice(-1) == 1){
+    divNumber = divId.slice(-1);
+    if(divNumber == 0){ //first level
         console.log("acces granted");
         lvlLoader(divId);
-    }else{
-        if(divId.slice(-1) != 1 && lvlData[divId.slice(-1) -2].userAnswer != ""){
+    }else{ //every other than first level
+        if(lvlData[divNumber-1].userAnswer != ""){
             console.log("acces granted");
             lvlLoader(divId);
         }else{
-            console.log("lvl not unlocked");
+            console.log("not granted");
             popmsg("level noch nicht freigeschaltet");
         }
     }
 }
-
+var currentId;
 function lvlLoader(divId){
+    console.log(divId);
+    divNumber = divId.slice(-1);
     document.querySelector(".level-structure").style.display = "block";
     document.querySelector("#level-header-level").innerHTML = divId;
+
+    spOne = document.querySelector("#storypart-one");
+    spTwo = document.querySelector("#storypart-two");
+    spThree = document.querySelector("#storypart-three");
+
+    spOne.innerHTML = lvlData[divNumber].texte[0];
+    currentId = divNumber;
+}
+function lvlresume(){
+    spOne = document.querySelector("#storypart-one");
+    spTwo = document.querySelector("#storypart-two");
+    spThree = document.querySelector("#storypart-three");
+
+    spOne.innerHTML = lvlData[currentId]
 }
 
 

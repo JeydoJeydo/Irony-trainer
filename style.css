@@ -104,13 +104,15 @@ p, a, span{
     padding: 30px;
 }
 .level-body{
-    width: 100%;
+    width: calc(100% - 60px);
     height: calc(100% - 60px - 1em - 100px);
+    margin: 0 0 0 30px;
     overflow: auto;
 }
 .level-footer{
     width: 100%;
-    height: 100px;
+    height: 80px;
+    padding: 20px 0 0 0;
 }
 
 /* settings */
