@@ -149,11 +149,22 @@ p, a, span{
 .userFeedback{
     position: absolute;
     top: 0;
-    width: calc(100% - 60px);
-    height: calc(100% - 60px);
-    padding: 30px;
+    width: 100%;
+    height: 100%;
     background-color: var(--C-orange);
     display: none;
+}
+#userFeedbackMsg{
+    width: calc(100% - 60px);
+    height: calc(100% - 80px - 60px - 30px);
+    padding: 30px;
+    overflow: auto;
+}
+#ufbmsgNewTry{
+    position: absolute;
+    background-color: #FFF;
+    color: var(--C-blue);
+    top: calc(100% - 80px);
 }
 
 /* settings */

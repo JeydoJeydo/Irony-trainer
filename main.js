@@ -222,10 +222,6 @@ function userFeedbackMsg(rw){
         document.querySelector("#userFeedbackMsg").innerHTML = "falsch";
         document.querySelector("#userFeedbackMsg").innerHTML = lvlData[currentId].ifWrong;
     }
-    setTimeout(userFeedbackMsgClose, 3000);
-    function userFeedbackMsgClose(){
-        document.querySelector(".userFeedback").style.display = "none";
-    }
 }
 
 function taskButtonAppearance(buttonId){
