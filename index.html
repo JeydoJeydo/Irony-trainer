@@ -116,13 +116,16 @@
         <div class="level-footer">
             <button type="button" id="levelFooterButton" class="defaultButton" onclick="lvlresume()">weiter</button>
             <div class="typeOne">
-                <p>Ironie</p>
-                <p>Lüge</p>
-                <p>Fehler</p>
+                <p onclick="userInput(0)">Ironie</p>
+                <p onclick="userInput(1)">Lüge</p>
+                <p onclick="userInput(2)">Fehler</p>
             </div>
             <div class="typeTwo">
 
             </div>
+        </div>
+        <div class="userFeedback">
+            <p id="userFeedbackMsg"></p>
         </div>
     </div>
     <!--Intro-->

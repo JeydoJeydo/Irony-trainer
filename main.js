@@ -187,6 +187,7 @@ function lvlLoader(divId){
     spOne.innerHTML = lvlData[divNumber].text;
     currentId = divNumber;
 }
+
 function lvlresume(){
     spOne = document.querySelector("#storypart-one");
     spTwo = document.querySelector("#storypart-two");
@@ -195,6 +196,34 @@ function lvlresume(){
 
     spOne.innerHTML = lvlData[currentId].task;
 }
+
+function userInput(lvldpInput){ //gets which button was pressed
+    if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
+        console.log("richtig");
+        userFeedbackMsg(1);
+    }else{
+        console.log("falsch");
+        userFeedbackMsg(2);
+    }
+    lvlData[currentLvl].userAnswer = lvldpInput;
+    //console.log(lvlData);
+    //saveLocal(stringifyData(lvlData));
+}
+
+function userFeedbackMsg(rw){
+    if(rw == 1){
+        document.querySelector(".userFeedback").style.display = "block";
+        document.querySelector("#userFeedbackMsg").innerHTML = "richtig";
+    }else if(rw == 2){
+        document.querySelector(".userFeedback").style.display = "block";
+        document.querySelector("#userFeedbackMsg").innerHTML = "falsch";
+    }
+    setTimeout(userFeedbackMsgClose, 3000);
+    function userFeedbackMsgClose(){
+        document.querySelector(".userFeedback").style.display = "none";
+    }
+}
+
 function taskButtonAppearance(buttonId){
     tbaButton = document.querySelector("#levelFooterButton");
     tbaWhat = document.querySelector(".typeOne");
@@ -238,16 +267,6 @@ function taskButtonAppearance(buttonId){
 
 
 
-function testingFunction(){
-    localStorage.clear();
-}
-
-
-
-
-
-
-
 
 
 
@@ -264,17 +283,6 @@ var currentLvl = 0; //current Level
 function progress(){
     document.getElementById("texttest").innerHTML = lvlData[currentLvl].text;   //display Text
     document.getElementById("currentLvl").innerHTML = currentLvl +1;    //display current Lvl
-}
-
-function userInput(lvldpInput){ //gets which button was pressed
-    if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
-        console.log("richtig");
-    }else{
-        console.log("falsch");
-    }
-    lvlData[currentLvl].userAnswer = lvldpInput;
-    console.log(lvlData);
-    saveLocal(stringifyData(lvlData));
 }
 function resume(){
     currentLvl++;
