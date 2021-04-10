@@ -119,10 +119,24 @@ p, a, span{
     height: 80px;
     padding: 20px 0 0 0;
 }
+#levelFooterButton{
+    position: absolute;
+    display: block;
+}
 /* answer types */
 
 .typeOne{
-
+    position: absolute;
+    width: calc(100% - 110px);
+    margin: 0 0 0 30px;
+    padding: 18px 25px;
+    border-radius: 15px;
+    background-color: var(--C-blue);
+}
+.typeOne p{
+    float: left;
+    color: #FFF;
+    font-size: 1em;
 }
 .typeTwo{
     
