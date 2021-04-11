@@ -131,8 +131,9 @@ function verteiler(a){
 }
 
 function avaLvl(){ //grey out all unavailable level
+    /*
     var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
-    for(i = 0; i < amountOfLevel; i++){
+    for(i = 0; i < amountOfLevel-1; i++){
         if(lvlData[i].userAnswer == ""){
             var elementID = "#lvl" + (i+1);
             console.log(elementID);
@@ -141,6 +142,20 @@ function avaLvl(){ //grey out all unavailable level
             console.log("yess");
         }
         console.log("durchlauf");
+    }
+    */
+    var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
+    for(i = 0; i < amountOfLevel-1; i++){
+        var elementID = "#lvl" + i;
+        var uAw = lvlData[i].userAnswer;
+        //console.log(elementID);
+            if(uAw === ""){
+                console.log("yes");
+                document.querySelector("#lvl" + (i+1)).style.opacity = "0.5";
+            }else{
+                console.log("no");
+                document.querySelector("#lvl" + (i+1)).style.opacity = "1";
+            }    
     }
 }
 
@@ -175,11 +190,13 @@ function popmsg(msg){
 
 function levelIntroducing(divId){
     divNumber = divId.slice(-1);
+    console.log(divNumber);
+    currentLvl = divNumber;
     if(divNumber == 0){ //first level
         console.log("acces granted");
         lvlLoader(divId);
     }else{ //every other than first level
-        if(lvlData[divNumber-1].userAnswer != ""){
+        if(lvlData[divNumber-1].userAnswer === "0" || lvlData[divNumber-1].userAnswer === "1" || lvlData[divNumber-1].userAnswer === "2"){ //lazy, please make it better
             console.log("acces granted");
             lvlLoader(divId);
         }else{
@@ -215,14 +232,17 @@ function lvlresume(){
 function userInput(lvldpInput){ //gets which button was pressed
     if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
         console.log("richtig");
+        console.log("cLEVEL" + currentLvl);
         userFeedbackMsg(1);
+
+        lvlData[currentLvl].userAnswer = String(lvldpInput);
+        console.log(lvlData);
+        avaLvl();
     }else{
         console.log("falsch");
         userFeedbackMsg(2);
     }
-    lvlData[currentLvl].userAnswer = lvldpInput;
-    //console.log(lvlData);
-    //saveLocal(stringifyData(lvlData));
+    saveLocal(stringifyData(lvlData));
 }
 
 function userFeedbackMsg(rw){
