@@ -6,6 +6,13 @@ html, body{
     height: 100%;
     overflow: hidden;
 }
+html{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 100%;
+    max-width: 500px;
+}
 :root{
     --C-orange: #F49A25;
     --C-blue: #2A353F;
@@ -374,6 +381,7 @@ p, a, span{
     position: absolute;
     top: calc(100% + 1em);
     width: calc(90vw - 4em);
+    max-width: 300px;
     text-align: center;
     left: 50%;
     transform: translate(-50%, 0);

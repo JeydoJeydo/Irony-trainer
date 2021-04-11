@@ -137,7 +137,7 @@ function avaLvl(){ //grey out all unavailable level
         var elementID = "#lvl" + i;
         var uAw = lvlData[i].userAnswer;
             if(uAw === ""){
-                document.querySelector("#lvl" + (i+1)).style.opacity = "0.5";
+                document.querySelector("#lvl" + (i+1)).style.opacity = "0.4";
                 document.querySelector("#lockID" + (i+1)).classList.add("lock-div-icon");
             }else{
                 document.querySelector("#lvl" + (i+1)).style.opacity = "1";
@@ -220,29 +220,29 @@ function userInput(lvldpInput){ //gets which button was pressed
     if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
         console.log("richtig");
 
-        if(lvlData[currentLvl].userAnswer == ""){
+        if(lvlData[currentLvl].userAnswer == ""){ //make sure lvl isn't used twice to get points
             userPoints += 100;   
         }
-        document.querySelector("#landing-points").innerHTML = "Punkte: " + userPoints; //display user Points on Site
+        document.querySelector("#landing-points").innerHTML = "Punkte: " + userPoints; //display user's points on page
         console.log("user Points" + userPoints);
         userFeedbackMsg(1);
 
-        lvlData[currentLvl].userAnswer = String(lvldpInput);
+        lvlData[currentLvl].userAnswer = String(lvldpInput); //save userAnswer to lvlData Array, needs to be a string
         console.log(lvlData);
         avaLvl();
     }else{
         console.log("falsch");
-        if(userPoints - minusPoints < 0){ //points cant go under zero
+        if(userPoints - minusPoints < 0){ //points can't go under zero
             userPoints = 0;
         }else{
             userPoints -= minusPoints;
         }
-        document.querySelector("#landing-points").innerHTML =  "Punkte: " + userPoints; //display user Points on Site
+        document.querySelector("#landing-points").innerHTML =  "Punkte: " + userPoints; //display user's points on page
 
         console.log("user Points" + userPoints);
         userFeedbackMsg(2);
     }
-    //saveLocal(stringifyData(lvlData)); //saves lvlData
+    //saveLocal(stringifyData(lvlData)); //saves lvlData to local Storage
 }
 
 function userFeedbackMsg(rw){
