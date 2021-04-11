@@ -166,6 +166,23 @@ p, a, span{
     color: var(--C-blue);
     top: calc(100% - 80px);
 }
+.userFeedbackRight{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    display: none;
+
+    background-image: url(img/succes.gif);
+    background-size: cover;
+}
+#nextLevel{
+    position: absolute;
+    background-color: #FFF;
+    color: var(--C-blue);
+    top: calc(100% - 80px);
+}
 
 /* settings */
 .settings{

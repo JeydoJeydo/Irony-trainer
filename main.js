@@ -113,6 +113,10 @@ function verteiler(a){
             document.querySelector(".level-structure").style.display = "none";
             taskButtonAppearance(0); //show resume button on lvl entry
             break;
+        case 6:
+            document.querySelector(".userFeedback").style.display = "none";
+            taskButtonAppearance(0); //show resume button on lvl entry
+            break;
         default:
             console.log("issue in verteiler function");
     }
@@ -215,8 +219,8 @@ function userInput(lvldpInput){ //gets which button was pressed
 
 function userFeedbackMsg(rw){
     if(rw == 1){//answer is right
-        //document.querySelector(".userFeedback").style.display = "block";
-        //document.querySelector("#userFeedbackMsg").innerHTML = "richtig";
+        document.querySelector(".userFeedback").style.display = "block";
+        document.querySelector(".userFeedbackRight").style.display = "block";
     }else if(rw == 2){//answer is wrong
         document.querySelector(".userFeedback").style.display = "block";
         document.querySelector("#userFeedbackMsg").innerHTML = "falsch";
