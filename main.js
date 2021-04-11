@@ -1,4 +1,6 @@
 var userName;
+var userPoints;
+var currentLvl = 0;
 
 window.onload = function(){
     console.log("init.");
@@ -115,6 +117,12 @@ function verteiler(a){
             break;
         case 6:
             document.querySelector(".userFeedback").style.display = "none";
+            taskButtonAppearance(0); //show resume button on lvl entry
+            break;
+        case 7:
+            document.querySelector(".userFeedback").style.display = "none";
+            document.querySelector(".userFeedbackRight").style.display = "none";
+            document.querySelector(".level-structure").style.display = "none";
             taskButtonAppearance(0); //show resume button on lvl entry
             break;
         default:
@@ -250,52 +258,4 @@ function taskButtonAppearance(buttonId){
             tbaChoose.style.display = "block";
             break;
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var currentLvl = 0; //current Level
-
-function progress(){
-    document.getElementById("texttest").innerHTML = lvlData[currentLvl].text;   //display Text
-    document.getElementById("currentLvl").innerHTML = currentLvl +1;    //display current Lvl
-}
-function resume(){
-    currentLvl++;
-    progress();
-}
-function reverse(){
-    currentLvl--;
-    progress();
-}
-function deleteData(){
-    localStorage.clear();
 }
