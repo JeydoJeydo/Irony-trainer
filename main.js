@@ -132,30 +132,16 @@ function verteiler(a){
 }
 
 function avaLvl(){ //grey out all unavailable level
-    /*
-    var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
-    for(i = 0; i < amountOfLevel-1; i++){
-        if(lvlData[i].userAnswer == ""){
-            var elementID = "#lvl" + (i+1);
-            console.log(elementID);
-            document.querySelector(elementID).style.opacity = "0.5";
-        }else{
-            console.log("yess");
-        }
-        console.log("durchlauf");
-    }
-    */
     var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
     for(i = 0; i < amountOfLevel-1; i++){
         var elementID = "#lvl" + i;
         var uAw = lvlData[i].userAnswer;
-        //console.log(elementID);
             if(uAw === ""){
-                console.log("yes");
                 document.querySelector("#lvl" + (i+1)).style.opacity = "0.5";
+                document.querySelector("#lockID" + (i+1)).classList.add("lock-div-icon");
             }else{
-                console.log("no");
                 document.querySelector("#lvl" + (i+1)).style.opacity = "1";
+                document.querySelector("#lockID" + (i+1)).classList.remove("lock-div-icon");
             }    
     }
 }

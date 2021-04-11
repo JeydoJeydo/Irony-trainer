@@ -69,6 +69,15 @@ p, a, span{
     border-radius: 20px;
     background-color: #F2F2F2;
 }
+.lock-div-icon:after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 1em;
+    background-image: url("img/lock.png");
+    background-size: contain;
+}
 .lvl-overview-wrapper div:nth-child(2n){
     margin: 0 0px 10px 10px;
 }
