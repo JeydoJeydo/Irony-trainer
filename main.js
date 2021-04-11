@@ -235,6 +235,7 @@ function userInput(lvldpInput){ //gets which button was pressed
         console.log("richtig");
 
         userPoints += 100;
+        document.querySelector("#landing-points").innerHTML = "Punkte: " + userPoints; //display user Points on Site
         console.log("user Points" + userPoints);
         userFeedbackMsg(1);
 
@@ -248,6 +249,7 @@ function userInput(lvldpInput){ //gets which button was pressed
         }else{
             userPoints -= minusPoints;
         }
+        document.querySelector("#landing-points").innerHTML =  "Punkte: " + userPoints; //display user Points on Site
 
         console.log("user Points" + userPoints);
         userFeedbackMsg(2);
