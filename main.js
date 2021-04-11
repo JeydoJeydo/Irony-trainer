@@ -249,8 +249,11 @@ function userFeedbackMsg(rw){
     if(rw == 1){//answer is right
         document.querySelector(".userFeedback").style.display = "block";
         document.querySelector(".userFeedbackRight").style.display = "block";
+        document.querySelector(".userFeedback").style.backgroundColor = ""; //no orange background so konfetti is visible
+        document.querySelector("#userFeedbackMsg").innerHTML = "";
     }else if(rw == 2){//answer is wrong
         document.querySelector(".userFeedback").style.display = "block";
+        document.querySelector(".userFeedback").style.backgroundColor = "var(--C-orange)"; //no konfetti so background can be orange
         document.querySelector("#userFeedbackMsg").innerHTML = "falsch";
         document.querySelector("#userFeedbackMsg").innerHTML = lvlData[currentId].ifWrong;
     }
