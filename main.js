@@ -220,7 +220,9 @@ function userInput(lvldpInput){ //gets which button was pressed
     if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
         console.log("richtig");
 
-        userPoints += 100;
+        if(lvlData[currentLvl].userAnswer == ""){
+            userPoints += 100;   
+        }
         document.querySelector("#landing-points").innerHTML = "Punkte: " + userPoints; //display user Points on Site
         console.log("user Points" + userPoints);
         userFeedbackMsg(1);
@@ -230,7 +232,7 @@ function userInput(lvldpInput){ //gets which button was pressed
         avaLvl();
     }else{
         console.log("falsch");
-        if(userPoints - minusPoints < 0){
+        if(userPoints - minusPoints < 0){ //points cant go under zero
             userPoints = 0;
         }else{
             userPoints -= minusPoints;
