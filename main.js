@@ -1,5 +1,6 @@
 var userName;
-var userPoints;
+var userPoints = 0;
+var minusPoints = 25;
 var currentLvl = 0;
 
 window.onload = function(){
@@ -232,7 +233,9 @@ function lvlresume(){
 function userInput(lvldpInput){ //gets which button was pressed
     if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
         console.log("richtig");
-        console.log("cLEVEL" + currentLvl);
+
+        userPoints += 100;
+        console.log("user Points" + userPoints);
         userFeedbackMsg(1);
 
         lvlData[currentLvl].userAnswer = String(lvldpInput);
@@ -240,9 +243,16 @@ function userInput(lvldpInput){ //gets which button was pressed
         avaLvl();
     }else{
         console.log("falsch");
+        if(userPoints - minusPoints < 0){
+            userPoints = 0;
+        }else{
+            userPoints -= minusPoints;
+        }
+
+        console.log("user Points" + userPoints);
         userFeedbackMsg(2);
     }
-    saveLocal(stringifyData(lvlData));
+    //saveLocal(stringifyData(lvlData)); //saves lvlData
 }
 
 function userFeedbackMsg(rw){
