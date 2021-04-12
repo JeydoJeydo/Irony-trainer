@@ -223,6 +223,7 @@ p, a, span{
 }
 .timeout-screen p{
     position: absolute;
+    width: calc(100% - 60px);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
