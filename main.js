@@ -34,6 +34,8 @@ function startup(){ //set or get UserName
         if(localStorage.getItem("lvlData") != null){
             lvlData = parseData(localStorage.getItem("lvlData"));  
             console.log(lvlData);
+            userPoints = parseInt(localStorage.getItem("userPoints"));
+            document.querySelector("#landing-points").innerHTML =  "Punkte: " + parseInt(userPoints);
         }
         document.querySelector(".intro-wrapper").style.display = "none";
         welcomeApp();
@@ -132,7 +134,7 @@ function verteiler(a){
         case 8: //delete points
             popmsg("Punkte auf 0 gesetzt");
             userPoints = 0;
-            document.querySelector("#landing-points").innerHTML =  "Punkte: " + userPoints;
+            document.querySelector("#landing-points").innerHTML =  "Punkte: " + parseInt(userPoints);
             break;
         case 9: //change name
             popmsg("Funktion noch nicht unterstützt");
@@ -235,8 +237,8 @@ function userInput(lvldpInput){ //gets which button was pressed
             userPoints += 100;
             document.querySelector("#rightMsg").innerHTML = "+" + 100 + " Punkte" + "<br>" + niceWords[Math.floor(Math.random() * niceWords.length)];
         }
-        document.querySelector("#landing-points").innerHTML = "Punkte: " + userPoints; //display user's points on page
-        console.log("user Points" + userPoints);
+        document.querySelector("#landing-points").innerHTML = "Punkte: " + parseInt(userPoints); //display user's points on page
+        console.log("user Points" + parseInt(userPoints));
         userFeedbackMsg(1);
 
         lvlData[currentLvl].userAnswer = String(lvldpInput); //save userAnswer to lvlData Array, needs to be a string
@@ -249,12 +251,13 @@ function userInput(lvldpInput){ //gets which button was pressed
         }else{
             userPoints -= minusPoints;
         }
-        document.querySelector("#landing-points").innerHTML =  "Punkte: " + userPoints; //display user's points on page
+        document.querySelector("#landing-points").innerHTML =  "Punkte: " + parseInt(userPoints); //display user's points on page
 
-        console.log("user Points" + userPoints);
+        console.log("user Points" + parseInt(userPoints));
         userFeedbackMsg(2);
     }
-    //saveLocal(stringifyData(lvlData)); //saves lvlData to local Storage
+    saveLocal(stringifyData(lvlData)); //saves lvlData to local Storage
+    localStorage.setItem("userPoints", parseInt(userPoints));
 }
 
 function userFeedbackMsg(rw){
