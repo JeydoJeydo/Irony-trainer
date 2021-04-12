@@ -24,6 +24,12 @@ window.onload = function(){
     startup();
 }
 
+function displayElements(){
+    document.querySelector(".level-structure").style.display = "none";
+    document.querySelector(".userFeedback").style.display = "none";
+    document.querySelector(".userFeedbackRight").style.display = "none";
+}
+
 function startup(){ //set or get UserName
     if(localStorage.getItem("userName") == null){   //user doesn't exists
         console.log("User doesnt exists!");

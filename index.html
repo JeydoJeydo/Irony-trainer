@@ -31,6 +31,7 @@
     </script>
 </head>
 <body>
+    <div class="loader"><img src="img/icon-144x144.png" alt="icon" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
     <!--App-->
     <div class="landing-wrapper">
         <div class="landing-header">
@@ -201,5 +202,13 @@
     <p onclick="reverse()">zurück</p>
 -->
 <p id="popmsg" class="fading">---</p>
+<script>
+    /* pageloader */
+    window.onload = function(){
+        document.querySelector(".loader").style.display = "none";
+        console.log("page loaded");
+        displayElements();
+    }
+</script>
 </body>
 </html>
