@@ -135,6 +135,7 @@ function verteiler(a){
             popmsg("Punkte auf 0 gesetzt");
             userPoints = 0;
             document.querySelector("#landing-points").innerHTML =  "Punkte: " + parseInt(userPoints);
+            localStorage.setItem("userPoints", parseInt(userPoints));
             break;
         case 9: //change name
             popmsg("Funktion noch nicht unterstützt");
