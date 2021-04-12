@@ -120,10 +120,11 @@ function verteiler(a){
             document.querySelector(".userFeedback").style.display = "none";
             taskButtonAppearance(0); //show resume button on lvl entry
             break;
-        case 7:
+        case 7: //next after succesfull lvl
             document.querySelector(".userFeedback").style.display = "none";
             document.querySelector(".userFeedbackRight").style.display = "none";
             document.querySelector(".level-structure").style.display = "none";
+            document.querySelector("#rightMsg").innerHTML = ""; //empthy msg after plus points get shown
             taskButtonAppearance(0); //show resume button on lvl entry
             break;
         case 8: //delete points
@@ -229,7 +230,8 @@ function userInput(lvldpInput){ //gets which button was pressed
         console.log("richtig");
 
         if(lvlData[currentLvl].userAnswer == ""){ //make sure lvl isn't used twice to get points
-            userPoints += 100;   
+            userPoints += 100;
+            document.querySelector("#rightMsg").innerHTML = "+" + 100 + " Punkte"; 
         }
         document.querySelector("#landing-points").innerHTML = "Punkte: " + userPoints; //display user's points on page
         console.log("user Points" + userPoints);

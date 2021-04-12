@@ -193,6 +193,12 @@ p, a, span{
     background-image: url(img/success.gif);
     background-size: cover;
 }
+#rightMsg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 #nextLevel{
     position: absolute;
     background-color: var(--C-blue);
