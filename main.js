@@ -126,6 +126,14 @@ function verteiler(a){
             document.querySelector(".level-structure").style.display = "none";
             taskButtonAppearance(0); //show resume button on lvl entry
             break;
+        case 8: //delete points
+            popmsg("Punkte auf 0 gesetzt");
+            userPoints = 0;
+            document.querySelector("#landing-points").innerHTML =  "Punkte: " + userPoints;
+            break;
+        case 9: //change name
+            popmsg("Funktion noch nicht unterstützt");
+            break;
         default:
             console.log("issue in verteiler function");
     }
