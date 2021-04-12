@@ -7,6 +7,7 @@ var enoughLvlPlayed = false;
 
 var niceWords = ["super gemacht", "sehr schön!", "toll gemacht", "woow!", "hätte ich nichts so geschafft"];
 
+/*
 window.onload = function(){
     console.log("init.");
 
@@ -21,6 +22,7 @@ window.onload = function(){
     });
     mw.start();
 }
+*/
 
 function displayElements(){
     document.querySelector(".level-structure").style.display = "none";
@@ -46,7 +48,7 @@ function startup(){ //set or get UserName
         document.querySelector(".intro-wrapper").style.display = "none";
         welcomeApp();
     }
-    avaLvl();
+    avaLvl(); //list all available levels
 }
 
 function saveLocal(dataToSave){
@@ -154,6 +156,9 @@ function verteiler(a){
             break;
         case 10:
             document.querySelector(".timeout-screen").style.display = "none"; //close timeout msg
+            break;
+        case 11:
+            popmsg("noch nicht unterstützt");
             break;
         default:
             console.log("issue in verteiler function");

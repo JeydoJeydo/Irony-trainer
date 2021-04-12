@@ -247,6 +247,15 @@ p, a, span{
     transform: translate(-50%, -50%);
 }
 
+/* own level */
+
+#ownLevel{
+    width: 100%;
+    margin: 0;
+    background-color: var(--C-blue);
+    color: #FFF;
+}
+
 /* settings */
 .settings{
     position: absolute;
