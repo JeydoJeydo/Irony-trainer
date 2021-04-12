@@ -20,8 +20,6 @@ window.onload = function(){
         "wordSpacing": "5"
     });
     mw.start();
-
-    startup();
 }
 
 function displayElements(){
