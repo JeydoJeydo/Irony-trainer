@@ -3,6 +3,8 @@ var userPoints = 0;
 var minusPoints = 25;
 var currentLvl = 0;
 
+var niceWords = ["super gemacht", "sehr schön!", "toll gemacht", "woow!", "hätte ich nichts so geschafft"];
+
 window.onload = function(){
     console.log("init.");
 
@@ -231,7 +233,7 @@ function userInput(lvldpInput){ //gets which button was pressed
 
         if(lvlData[currentLvl].userAnswer == ""){ //make sure lvl isn't used twice to get points
             userPoints += 100;
-            document.querySelector("#rightMsg").innerHTML = "+" + 100 + " Punkte"; 
+            document.querySelector("#rightMsg").innerHTML = "+" + 100 + " Punkte" + "<br>" + niceWords[Math.floor(Math.random() * niceWords.length)];
         }
         document.querySelector("#landing-points").innerHTML = "Punkte: " + userPoints; //display user's points on page
         console.log("user Points" + userPoints);
