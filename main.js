@@ -2,6 +2,8 @@ var userName;
 var userPoints = 0;
 var minusPoints = 25;
 var currentLvl = 0;
+var lvlSession = 0;
+var enoughLvlPlayed = false;
 
 var niceWords = ["super gemacht", "sehr schön!", "toll gemacht", "woow!", "hätte ich nichts so geschafft"];
 
@@ -130,6 +132,11 @@ function verteiler(a){
             document.querySelector(".level-structure").style.display = "none";
             document.querySelector("#rightMsg").innerHTML = ""; //empthy msg after plus points get shown
             taskButtonAppearance(0); //show resume button on lvl entry
+
+            if(enoughLvlPlayed == true){
+                console.log("triggered");
+                triggerTimeout();
+            }
             break;
         case 8: //delete points
             popmsg("Punkte auf 0 gesetzt");
@@ -139,6 +146,9 @@ function verteiler(a){
             break;
         case 9: //change name
             popmsg("Funktion noch nicht unterstützt");
+            break;
+        case 10:
+            document.querySelector(".timeout-screen").style.display = "none"; //close timeout msg
             break;
         default:
             console.log("issue in verteiler function");
@@ -245,6 +255,13 @@ function userInput(lvldpInput){ //gets which button was pressed
         lvlData[currentLvl].userAnswer = String(lvldpInput); //save userAnswer to lvlData Array, needs to be a string
         console.log(lvlData);
         avaLvl();
+
+        lvlSession ++; //passed Level per session
+        if(lvlSession == 2){
+            console.log("zwei level gespielt");
+            lvlSession = 0;
+            enoughLvlPlayed = true;
+        }
     }else{
         console.log("falsch");
         if(userPoints - minusPoints < 0){ //points can't go under zero
@@ -297,4 +314,8 @@ function taskButtonAppearance(buttonId){
             tbaChoose.style.display = "block";
             break;
     }
+}
+
+function triggerTimeout(){
+    document.querySelector(".timeout-screen").style.display = "block";
 }

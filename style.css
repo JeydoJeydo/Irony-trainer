@@ -208,6 +208,26 @@ p, a, span{
     top: calc(100% - 80px);
 }
 
+.timeout-screen{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    display: none;
+    z-index: 10;
+}
+#timeoutMsg{
+    position: absolute;
+    top: calc(100% - 80px);
+}
+.timeout-screen p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* settings */
 .settings{
     position: absolute;
