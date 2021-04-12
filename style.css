@@ -188,7 +188,7 @@ p, a, span{
     height: 100%;
     display: none;
 
-    background-image: url(img/Secuence.gif);
+    background-image: url(img/success.gif);
     background-size: cover;
 }
 #nextLevel{
