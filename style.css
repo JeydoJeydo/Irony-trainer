@@ -34,6 +34,16 @@ p, a, span{
     background-color: #FFF;
     z-index: 9999;
 }
+.loader img{
+    animation-name: loader;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+}
+@keyframes loader {
+    0%{opacity: 0.2;}
+    50%{opacity: 1;}
+    100%{opacity: 0.2;}
+}
 /* App */
 .landing-wrapper{
     position: absolute;
