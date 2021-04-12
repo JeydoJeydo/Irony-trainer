@@ -136,6 +136,7 @@ function verteiler(a){
             if(enoughLvlPlayed == true){
                 console.log("triggered");
                 triggerTimeout();
+                enoughLvlPlayed = false;
             }
             break;
         case 8: //delete points
