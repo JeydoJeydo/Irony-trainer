@@ -10,16 +10,16 @@ var lvlData = [
 },
 {
     "type":0,
-    "text":"noch kein Kontent",
-    "task":"noch kein Kontent",
+    "text":"Am bekanntesten ist die Ironie auf der Wortebene, die Ironie, die wir aussprechen. Herkömmlich ist sie als Spott oder Gegenteil zu gesagtem bekannt.<br><br><i>Die Schritte um sie zu verstehen kennst du ja schon</i>",
+    "task":"Wenn sich jemand mit Absicht dummstellt:,,Das habe ich ja gar nicht gewusst\"",
     "ifWrong":"noch kein Kontent",
     "solution":0,
     "userAnswer":""
 },
 {
     "type":0,
-    "text":"noch kein Kontent",
-    "task":"noch kein Kontent",
+    "text":"Doch es gibt auch weitere Formen, in denen nicht nur das bloße Gegenteil ausgedrückt wird. Man kann beispielsweise etwas kritisieren und gleichzeitig der Situation den Ernst nehmen.<br><br><i>Wichtig ist nur, dass sicher gestellt wird, dass das Gegenüber die Ironie versteht. Sonst kann es die Situation noch verschlimmern.</i>",
+    "task":"Wenn sich jemand wirklich gar keine Mühe bei einer Aufgabe gegeben hat und der Lehrer sagt:,,das hast du aber toll gemacht\"",
     "ifWrong":"noch kein Kontent",
     "solution":0,
     "userAnswer":""

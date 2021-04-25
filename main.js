@@ -5,7 +5,7 @@ var currentLvl = 0;
 var lvlSession = 0;
 var enoughLvlPlayed = false;
 
-var niceWords = ["super gemacht", "sehr schön!", "toll gemacht", "woow!", "hätte ich nichts so geschafft"];
+var niceWords = ["super gemacht", "sehr schön!", "toll gemacht", "woow!", "hätte ich nichts so geschafft"]; //shown words when lvl is passed
 
 /*
 window.onload = function(){
