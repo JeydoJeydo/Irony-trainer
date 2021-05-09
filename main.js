@@ -217,7 +217,7 @@ function levelIntroducing(divId){
         console.log("acces granted");
         lvlLoader(divId);
     }else{ //every other than first level
-        if(lvlData[divNumber-1].userAnswer === "0" || lvlData[divNumber-1].userAnswer === "1" || lvlData[divNumber-1].userAnswer === "2"){ //lazy, please make it better
+        if(lvlData[divNumber-1].userAnswer === "0" || lvlData[divNumber-1].userAnswer === "1" || lvlData[divNumber-1].userAnswer === "2" || lvlData[divNumber-1].userAnswer === "3" || lvlData[divNumber-1].userAnswer === "4"){ //lazy, please make it better
             console.log("acces granted");
             lvlLoader(divId);
         }else{
@@ -245,7 +245,9 @@ function lvlresume(){
     spOne = document.querySelector("#storypart-one");
     spTwo = document.querySelector("#storypart-two");
     spThree = document.querySelector("#storypart-three");
-    taskButtonAppearance(1);
+    //taskButtonAppearance(1);
+    taskButtonAppearance(lvlData[currentLvl].type);
+    console.log("apperance test:" + lvlData[currentLvl].type);
 
     spOne.innerHTML = lvlData[currentId].task;
 }
@@ -321,7 +323,7 @@ function taskButtonAppearance(buttonId){
         case 2:
             tbaButton.style.display = "none";
             tbaWhat.style.display = "none";
-            tbaChoose.style.display = "block";
+            tbaChoose.style.display = "flex";
             break;
     }
 }

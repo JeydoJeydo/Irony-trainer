@@ -174,9 +174,22 @@ p, a, span{
     color: #FFF;
     font-size: 1em;
 }
+
 .typeTwo{
-    display: none;
+    position: absolute;
+    width: calc(100% - 110px);
+    margin: 0 0 0 30px;
+    padding: 18px 25px;
+    border-radius: 15px;
+    background-color: var(--C-blue);
+    display: none; /* flex */
+    justify-content: space-between;
 }
+.typeTwo p{
+    color: #FFF;
+    font-size: 1em;
+}
+
 
 /* user feedback */
 
