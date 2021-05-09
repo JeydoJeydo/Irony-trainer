@@ -1,5 +1,13 @@
 var userName;
+var userPoints = 0;
+var minusPoints = 25;
+var currentLvl = 0;
+var lvlSession = 0;
+var enoughLvlPlayed = false;
 
+var niceWords = ["super gemacht", "sehr schön!", "toll gemacht", "woow!", "hätte ich nichts so geschafft"]; //shown words when lvl is passed
+
+/*
 window.onload = function(){
     console.log("init.");
 
@@ -13,8 +21,13 @@ window.onload = function(){
         "wordSpacing": "5"
     });
     mw.start();
+}
+*/
 
-    startup();
+function displayElements(){
+    document.querySelector(".level-structure").style.display = "none";
+    document.querySelector(".userFeedback").style.display = "none";
+    document.querySelector(".userFeedbackRight").style.display = "none";
 }
 
 function startup(){ //set or get UserName
@@ -29,11 +42,13 @@ function startup(){ //set or get UserName
         if(localStorage.getItem("lvlData") != null){
             lvlData = parseData(localStorage.getItem("lvlData"));  
             console.log(lvlData);
+            userPoints = parseInt(localStorage.getItem("userPoints"));
+            document.querySelector("#landing-points").innerHTML =  "Punkte: " + parseInt(userPoints);
         }
         document.querySelector(".intro-wrapper").style.display = "none";
         welcomeApp();
     }
-    avaLvl();
+    avaLvl(); //list all available levels
 }
 
 function saveLocal(dataToSave){
@@ -113,6 +128,38 @@ function verteiler(a){
             document.querySelector(".level-structure").style.display = "none";
             taskButtonAppearance(0); //show resume button on lvl entry
             break;
+        case 6:
+            document.querySelector(".userFeedback").style.display = "none";
+            taskButtonAppearance(0); //show resume button on lvl entry
+            break;
+        case 7: //next after succesfull lvl
+            document.querySelector(".userFeedback").style.display = "none";
+            document.querySelector(".userFeedbackRight").style.display = "none";
+            document.querySelector(".level-structure").style.display = "none";
+            document.querySelector("#rightMsg").innerHTML = ""; //empthy msg after plus points get shown
+            taskButtonAppearance(0); //show resume button on lvl entry
+
+            if(enoughLvlPlayed == true){
+                console.log("triggered");
+                triggerTimeout();
+                enoughLvlPlayed = false;
+            }
+            break;
+        case 8: //delete points
+            popmsg("Punkte auf 0 gesetzt");
+            userPoints = 0;
+            document.querySelector("#landing-points").innerHTML =  "Punkte: " + parseInt(userPoints);
+            localStorage.setItem("userPoints", parseInt(userPoints));
+            break;
+        case 9: //change name
+            popmsg("Funktion noch nicht unterstützt");
+            break;
+        case 10:
+            document.querySelector(".timeout-screen").style.display = "none"; //close timeout msg
+            break;
+        case 11:
+            popmsg("noch nicht unterstützt");
+            break;
         default:
             console.log("issue in verteiler function");
     }
@@ -120,15 +167,16 @@ function verteiler(a){
 
 function avaLvl(){ //grey out all unavailable level
     var amountOfLevel = document.querySelector(".lvl-overview-wrapper").getElementsByTagName("div").length;
-    for(i = 0; i < amountOfLevel; i++){
-        if(lvlData[i].userAnswer == ""){
-            var elementID = "#lvl" + (i+1);
-            console.log(elementID);
-            document.querySelector(elementID).style.opacity = "0.5";
-        }else{
-            console.log("yess");
-        }
-        console.log("durchlauf");
+    for(i = 0; i < amountOfLevel-1; i++){
+        var elementID = "#lvl" + i;
+        var uAw = lvlData[i].userAnswer;
+            if(uAw === ""){
+                document.querySelector("#lvl" + (i+1)).style.opacity = "0.4";
+                document.querySelector("#lockID" + (i+1)).classList.add("lock-div-icon");
+            }else{
+                document.querySelector("#lvl" + (i+1)).style.opacity = "1";
+                document.querySelector("#lockID" + (i+1)).classList.remove("lock-div-icon");
+            }    
     }
 }
 
@@ -163,11 +211,13 @@ function popmsg(msg){
 
 function levelIntroducing(divId){
     divNumber = divId.slice(-1);
+    console.log(divNumber);
+    currentLvl = divNumber;
     if(divNumber == 0){ //first level
         console.log("acces granted");
         lvlLoader(divId);
     }else{ //every other than first level
-        if(lvlData[divNumber-1].userAnswer != ""){
+        if(lvlData[divNumber-1].userAnswer === "0" || lvlData[divNumber-1].userAnswer === "1" || lvlData[divNumber-1].userAnswer === "2"){ //lazy, please make it better
             console.log("acces granted");
             lvlLoader(divId);
         }else{
@@ -203,22 +253,50 @@ function lvlresume(){
 function userInput(lvldpInput){ //gets which button was pressed
     if(lvldpInput == lvlData[currentLvl].solution){  //if answer is correct
         console.log("richtig");
+
+        if(lvlData[currentLvl].userAnswer == ""){ //make sure lvl isn't used twice to get points
+            userPoints += 100;
+            document.querySelector("#rightMsg").innerHTML = "+" + 100 + " Punkte" + "<br>" + niceWords[Math.floor(Math.random() * niceWords.length)];
+        }
+        document.querySelector("#landing-points").innerHTML = "Punkte: " + parseInt(userPoints); //display user's points on page
+        console.log("user Points" + parseInt(userPoints));
         userFeedbackMsg(1);
+
+        lvlData[currentLvl].userAnswer = String(lvldpInput); //save userAnswer to lvlData Array, needs to be a string
+        console.log(lvlData);
+        avaLvl();
+
+        lvlSession ++; //passed Level per session
+        if(lvlSession == 2){
+            console.log("zwei level gespielt");
+            lvlSession = 0;
+            enoughLvlPlayed = true;
+        }
     }else{
         console.log("falsch");
+        if(userPoints - minusPoints < 0){ //points can't go under zero
+            userPoints = 0;
+        }else{
+            userPoints -= minusPoints;
+        }
+        document.querySelector("#landing-points").innerHTML =  "Punkte: " + parseInt(userPoints); //display user's points on page
+
+        console.log("user Points" + parseInt(userPoints));
         userFeedbackMsg(2);
     }
-    lvlData[currentLvl].userAnswer = lvldpInput;
-    //console.log(lvlData);
-    //saveLocal(stringifyData(lvlData));
+    saveLocal(stringifyData(lvlData)); //saves lvlData to local Storage
+    localStorage.setItem("userPoints", parseInt(userPoints));
 }
 
 function userFeedbackMsg(rw){
     if(rw == 1){//answer is right
-        //document.querySelector(".userFeedback").style.display = "block";
-        //document.querySelector("#userFeedbackMsg").innerHTML = "richtig";
+        document.querySelector(".userFeedback").style.display = "block";
+        document.querySelector(".userFeedbackRight").style.display = "block";
+        document.querySelector(".userFeedback").style.backgroundColor = ""; //no orange background so konfetti is visible
+        document.querySelector("#userFeedbackMsg").innerHTML = "";
     }else if(rw == 2){//answer is wrong
         document.querySelector(".userFeedback").style.display = "block";
+        document.querySelector(".userFeedback").style.backgroundColor = "var(--C-orange)"; //no konfetti so background can be orange
         document.querySelector("#userFeedbackMsg").innerHTML = "falsch";
         document.querySelector("#userFeedbackMsg").innerHTML = lvlData[currentId].ifWrong;
     }
@@ -248,50 +326,6 @@ function taskButtonAppearance(buttonId){
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var currentLvl = 0; //current Level
-
-function progress(){
-    document.getElementById("texttest").innerHTML = lvlData[currentLvl].text;   //display Text
-    document.getElementById("currentLvl").innerHTML = currentLvl +1;    //display current Lvl
-}
-function resume(){
-    currentLvl++;
-    progress();
-}
-function reverse(){
-    currentLvl--;
-    progress();
-}
-function deleteData(){
-    localStorage.clear();
+function triggerTimeout(){
+    document.querySelector(".timeout-screen").style.display = "block";
 }

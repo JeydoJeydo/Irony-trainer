@@ -15,13 +15,23 @@
     <link rel="stylesheet" href="movinwords-main/dist/movinwords.min.css" />
     <script src="movinwords-main/dist/movinwords.min.js"></script>
 
-    <link rel="icon" type="image/png" href="img/favicon/favicon_1.1_152px.png" sizes="152x152">
-    <link rel="icon" type="image/png" href="img/favicon/favicon_1.1_144px.png" sizes="144x144">
-    <link rel="icon" type="image/png" href="img/favicon/favicon_1.1_50px.png" sizes="50x50">
+    <link rel="icon" type="image/png" href="img/icon-152x152.png" sizes="152x152">
+    <link rel="icon" type="image/png" href="img/icon-144x144.png" sizes="144x144">
+    <link rel="icon" type="image/png" href="img/icon-50x50.png" sizes="50x50">
 
     <meta name="theme-color" content="#2A353F">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L77R5T1RFQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L77R5T1RFQ');
+    </script>
 </head>
 <body>
+    <div class="loader"><img src="img/icon-50x50.png" alt="icon" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
     <!--App-->
     <div class="landing-wrapper">
         <div class="landing-header">
@@ -41,20 +51,20 @@
                     </g>
                 </svg>    
             </section>
-           <p id="landing-msg" onclick="testingFunction()"></p><p id="landing-points">Punkte: 0000</p>
+           <p id="landing-msg" onclick="testingFunction()"></p><p id="landing-points">Punkte: 0</p>
         </div>
         <div class="lvl-overview-wrapper">
-            <div class="lvl" id="lvl0" onclick="levelIntroducing(this.id)"><p>Level 1</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl1" onclick="levelIntroducing(this.id)"><p>Level 2</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl2" onclick="levelIntroducing(this.id)"><p>Level 3</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl3" onclick="levelIntroducing(this.id)"><p>Level 4</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl4" onclick="levelIntroducing(this.id)"><p>Level 5</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl5" onclick="levelIntroducing(this.id)"><p>Level 6</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl6" onclick="levelIntroducing(this.id)"><p>Level 7</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl7" onclick="levelIntroducing(this.id)"><p>Level 8</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl8" onclick="levelIntroducing(this.id)"><p>Level 9</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <div class="lvl" id="lvl9" onclick="levelIntroducing(this.id)"><p>Level 10</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
-            <p>ende</p>
+            <div class="lvl" id="lvl0" onclick="levelIntroducing(this.id)"><p id="lockID0">Level 1</p><p>Was ist eigentlich Ironie?</p></div>
+            <div class="lvl" id="lvl1" onclick="levelIntroducing(this.id)"><p id="lockID1">Level 2</p><p>Die verschiedenen Arten von Ironie</p></div>
+            <div class="lvl" id="lvl2" onclick="levelIntroducing(this.id)"><p id="lockID2">Level 3</p><p>Weitere Fakten zu Ironie</p></div>
+            <div class="lvl" id="lvl3" onclick="levelIntroducing(this.id)"><p id="lockID3">Level 4</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
+            <div class="lvl" id="lvl4" onclick="levelIntroducing(this.id)"><p id="lockID4">Level 5</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
+            <div class="lvl" id="lvl5" onclick="levelIntroducing(this.id)"><p id="lockID5">Level 6</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
+            <div class="lvl" id="lvl6" onclick="levelIntroducing(this.id)"><p id="lockID6">Level 7</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
+            <div class="lvl" id="lvl7" onclick="levelIntroducing(this.id)"><p id="lockID7">Level 8</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
+            <div class="lvl" id="lvl8" onclick="levelIntroducing(this.id)"><p id="lockID8">Level 9</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
+            <div class="lvl" id="lvl9" onclick="levelIntroducing(this.id)"><p id="lockID9">Level 10</p><p>orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p></div>
+            <button type="button" id="ownLevel" class="defaultButton" onclick="verteiler(11)">Erstelle ein eigenes Level</button>
         </div>
     </div>
     <div class="settings fading">
@@ -78,14 +88,16 @@
             <p id="settings-inner-header-p">Einstellungen</p>
             <section>
                <p onclick="verteiler(4)">Daten löschen</p> 
-               <p>Punkte löschen</p> 
-               <p>Namen ändern</p> 
+               <p onclick="verteiler(8)">Punkte löschen</p> 
+               <p onclick="verteiler(9)">Namen ändern</p> 
             </section>
             <p>Info:</p>
             <section>
                 <p>E-Mail: heringsilas@gmail.com</p>
                 <p>Mobile: 1234 / 2345456</p>
             </section>
+            <p>Entwickelt und programmiert von Silas Hering</p><br>
+            <p><i>Version: 0.1</i></p>
         </div>
     </div>
     <div class="level-structure">
@@ -126,33 +138,40 @@
         </div>
         <div class="userFeedback">
             <p id="userFeedbackMsg"></p>
-            <button type="button" id="ufbmsgNewTry" class="defaultButton" onclick="lvlresume()">neuer Versuch</button>
+            <button type="button" id="ufbmsgNewTry" class="defaultButton" onclick="verteiler(6)">neuer Versuch</button>
+            <div class="userFeedbackRight">
+                <p id="rightMsg">--</p>
+                <button type="button" id="nextLevel" class="defaultButton" onclick="verteiler(7)">weiter</button>
+            </div>
         </div>
+        
+    </div>
+    <div class="timeout-screen">
+        <p>Du hast heute schon viel gemacht, vielleicht solltest du aufhören, um das Wissen etwas sacken zu lassen?</p>
+        <button type="button" id="timeoutMsg" class="defaultButton" onclick="verteiler(10)">weiter</button>
+    </div>
+    <div class="create-lvl">
+        
     </div>
     <!--Intro-->
     <div class="intro-wrapper fading">
         <div class="intro-header-wrapper">
-            <p id="app-name" class="fading">Ironie Trainer</p>
+            <p id="app-name" class="fading">Lironi</p>
         </div>
         <div class="intro-aboutText-wrapper fading">
             <div class="intro-aboutText-wrapper-inner">
                 <section>
-                    <p id="app-about-text-thick">Eine Lern-App für Kinder um Ironie zu trainieren</p>
-                    <p id="app-about-text">orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam </p>    
+                    <p id="app-about-text-thick">Ziel dieser Lernsoftware</p>
+                    <p id="app-about-text">Diese Lernsoftware soll die natürliche Entwicklung des Ironie Verständnisses von ca. 10 Jährigen unterstützen, erklären und anhand von Beispielen leicht nahebringen.</p>    
                 </section>
                 <section>
-                    <p id="app-about-text-thick">Eine Lern-App für Kinder um Ironie zu trainieren</p>
-                    <p id="app-about-text">orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam </p>    
+                    <p id="app-about-text-thick">Warum soll Ironie gelernt werden?</p>
+                    <p id="app-about-text"><i>,,Bevor Ironie verstanden und verwendet wird, kann Sprache nicht reif genutzt werden. Sie ist eine durchdringende menschliche Fähigkeit, Dinge, die anders sind, als sie erst erscheinen, zu erkennen und über sie zu kommunizieren.“ ~ Noemi Famula</i><br><br>
+                        Kinder werden in für sie bestimmten Fernsehsendungen rund 2,75-mal in 30 Minuten mit Ironie konfrontiert. Durch den ständigen Kontakt mit ihr in unserer Gesellschaft, zählt sie zu den wichtigsten sprachlichen Fähigkeiten. In dieser Hausarbeit soll es um die Entwicklung einer Ironie lehrenden Software gehen.</p>    
                 </section>
                 <section>
-                    <p id="app-about-text-thick">Eine Lern-App für Kinder um Ironie zu trainieren</p>
-                    <p id="app-about-text">orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam </p>    
+                    <p id="app-about-text-thick">Wie wird gelernt?</p>
+                    <p id="app-about-text">Gelernt wird spielerisch, begleitet durch eine Geschichte. In dieser wird die Funktionsweise von Ironie erläutert, sodass sie von ca. Zehnjährigen verstanden werden kann. Gepaart mit Bildern werden so Aufgaben verschiedener Typen gestellt, die das Kind durchlaufen kann, mit denen Punkte verdient werden. Diese zählen als Ermutigung, mit denen das Aussehen der Software verändert werden kann.</p>    
                 </section>
             </div>
         </div>
@@ -175,16 +194,15 @@
             <button type="button" id="intro-welcome-skip" class="defaultButton" onclick="verteiler(1)">Ich will erst gucken </button>
         </div>
     </div>
-<!--
-    <p onclick="deleteData()">delete</p>
-    <p id="currentLvl"></p>
-    <p class="word" id="texttest"></p>
-    <p onclick="userInput(0)">Ironie</p>
-    <p onclick="userInput(1)">Lüge</p>
-    <p onclick="userInput(2)">Fehler</p>
-    <p onclick="resume()">weiter</p>
-    <p onclick="reverse()">zurück</p>
--->
 <p id="popmsg" class="fading">---</p>
+<script>
+    /* pageloader */
+    window.onload = function(){
+        document.querySelector(".loader").style.display = "none";
+        console.log("page loaded");
+        displayElements();
+        startup();
+    }
+</script>
 </body>
 </html>

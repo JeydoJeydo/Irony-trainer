@@ -6,6 +6,13 @@ html, body{
     height: 100%;
     overflow: hidden;
 }
+html{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 100%;
+    max-width: 500px;
+}
 :root{
     --C-orange: #F49A25;
     --C-blue: #2A353F;
@@ -18,6 +25,24 @@ body{
 p, a, span{
     font-family: 'Nunito', sans-serif;
     color: var(--C-blue);
+}
+.loader{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    z-index: 9999;
+}
+.loader img{
+    animation-name: loader;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+}
+@keyframes loader {
+    0%{opacity: 0.2;}
+    50%{opacity: 1;}
+    100%{opacity: 0.2;}
 }
 /* App */
 .landing-wrapper{
@@ -69,6 +94,15 @@ p, a, span{
     border-radius: 20px;
     background-color: #F2F2F2;
 }
+.lock-div-icon:after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 1em;
+    background-image: url("img/lock.png");
+    background-size: contain;
+}
 .lvl-overview-wrapper div:nth-child(2n){
     margin: 0 0px 10px 10px;
 }
@@ -93,7 +127,7 @@ p, a, span{
     width: 100%;
     height: 100%;
     background-color: #FFF;
-    display: none;
+    /*display: none;*/
     z-index: 3;
 }
 #level-icon-close{
@@ -151,8 +185,7 @@ p, a, span{
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--C-orange);
-    display: none;
+    /*display: none;*/
 }
 #userFeedbackMsg{
     width: calc(100% - 60px);
@@ -166,6 +199,61 @@ p, a, span{
     background-color: #FFF;
     color: var(--C-blue);
     top: calc(100% - 80px);
+}
+.userFeedbackRight{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*display: none;*/
+    background-color: rgba(255, 255, 255, .8);
+
+    background-image: url(img/success.gif);
+    background-size: cover;
+}
+#rightMsg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    text-align: center;
+}
+#nextLevel{
+    position: absolute;
+    background-color: var(--C-blue);
+    color: #FFF;
+    top: calc(100% - 80px);
+}
+
+.timeout-screen{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    display: none;
+    z-index: 10;
+}
+#timeoutMsg{
+    position: absolute;
+    top: calc(100% - 80px);
+}
+.timeout-screen p{
+    position: absolute;
+    width: calc(100% - 60px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* own level */
+
+#ownLevel{
+    width: 100%;
+    margin: 20px 0 0 0;
+    background-color: var(--C-blue);
+    color: #FFF;
 }
 
 /* settings */
@@ -349,6 +437,7 @@ p, a, span{
     position: absolute;
     top: calc(100% + 1em);
     width: calc(90vw - 4em);
+    max-width: 300px;
     text-align: center;
     left: 50%;
     transform: translate(-50%, 0);
